@@ -29,6 +29,6 @@ echo $dottedArray->get('women.clothss');
 Also can be used with globals, like $_SESSION
 
 ``` php
-$session = new Picios\Lib\DottedArray($array);
+$session = new Picios\Lib\DottedArray($_SESSION);
 echo $session->get('user.name');
 ```
