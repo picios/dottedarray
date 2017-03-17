@@ -1,10 +1,10 @@
-# Dotted Array
+# PHP Dotted Array
 
 Gets or Sets array node using a dot notation.
 It gives a convenient access to array elements.
 Particularly recommended for config arrays.
 
-Sample code:
+## Sample code
 
 ``` php
 $array = array(
@@ -32,3 +32,7 @@ Also can be used with globals, like $_SESSION
 $session = new Picios\Lib\DottedArray($_SESSION);
 echo $session->get('user.name');
 ```
+
+## Homepage
+
+You can read more at [Picios.pl](http://picios.pl/php-dotted-array/)
