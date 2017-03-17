@@ -21,13 +21,14 @@ $array = array(
 	),
 );
 
-$dottedArray = new Picios\DottedArray($array);
+require_once 'DottedArray.php';
+$dottedArray = new Picios\Lib\DottedArray($array);
 echo $dottedArray->get('women.clothss');
 ```
 
 Also can be used with globals, like $_SESSION
 
 ``` php
-$session = new Picios\DottedArray($array);
+$session = new Picios\Lib\DottedArray($array);
 echo $session->get('user.name');
 ```
