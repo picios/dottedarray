@@ -1,2 +1,13 @@
-/nbproject/private/
-/nbproject/
+# Composer
+vendor/
+
+# Code coverage report
+coverage/
+
+# IDE
+.idea/
+
+# NetBeans
+
+nbproject/private/
+nbproject/

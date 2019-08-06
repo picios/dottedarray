@@ -6,15 +6,15 @@
  * It gives a convenient access to array elements.
  * Particularly recommended for config arrays.
  * 
- * @version 1.0.1
+ * @version 1.0.2
  * @author Picios
- * @copyright (c) 2017, Picios
+ * @copyright (c) 2019, Picios
  * @link pcios.pl website
  * @link https://github.com/picios/dottedarray github repository
  * @license https://github.com/github/hubot/blob/master/LICENSE.md MIT License
  */
 
-namespace Picios\Lib;
+namespace Picios\DottedArray;
 
 class DottedArray
 {
@@ -23,13 +23,13 @@ class DottedArray
 	 *
 	 * @var array 
 	 */
-	private $array = array();
+	private $array = [];
 	
 	/**
 	 * 
 	 * @param array $array
 	 */
-	public function __construct($array)
+	public function __construct(?array $array)
 	{
 		$this->array = $array;
 	}
@@ -39,7 +39,7 @@ class DottedArray
 	 * @param string $key
 	 * @param mix $value
 	 */
-	public function set($key, $value = true)
+	public function set(string $key, $value = true)
 	{
 		$reference = & $this->getReference($key, true);
 		$reference = $value;
@@ -50,9 +50,9 @@ class DottedArray
 	 * @param string $key
 	 * @return mix
 	 */
-	public function &get($key = false)
+	public function &get(?string $key = null)
 	{
-		if (!$key) {
+		if ($key === null) {
 			return $this->array;
 		}
 		return $this->getReference($key);
@@ -63,7 +63,7 @@ class DottedArray
 	 * @param string $key
 	 * @return boolean
 	 */
-	public function delete($key)
+	public function delete(string $key)
 	{
 		$keys = explode('.', $key);
 		if (count($keys) < 2) {
@@ -82,7 +82,7 @@ class DottedArray
 	 * @param boolead $forWritting
 	 * @return mix
 	 */
-	protected function &getReference($key, $forWritting = false)
+	protected function &getReference($key, bool $forWritting = false)
 	{
 		$keys = explode('.', $key);
 		$reference = & $this->array;

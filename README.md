@@ -1,12 +1,18 @@
-# PHP Dotted Array
 
-Gets or Sets array node using a dot notation.
-It gives a convenient access to array elements.
+# DottedArray
+
+Gets and sets an array node using a dot notation.
+It gives a convenient access to an array elements.
 Particularly recommended for config arrays.
 
-## Sample code
+## Usage
 
 ``` php
+
+use Picios\DottedArray\DottedArray;
+
+require_once __DIR__ . '/vendor/autoload.php';
+
 $array = array(
 	'women' => array(
 		'cloths' => 'always lack',
@@ -21,18 +27,24 @@ $array = array(
 	),
 );
 
-require_once 'DottedArray.php';
-$dottedArray = new Picios\Lib\DottedArray($array);
-echo $dottedArray->get('women.clothss');
+$dottedArray = new DottedArray($array);
+echo $dottedArray->get('women.cloths');
+
+$dottedArray->set('women.cloths', 'ok');
+echo $dottedArray->get('women.cloths');
 ```
 
 Also can be used with globals, like $_SESSION
 
 ``` php
-$session = new Picios\Lib\DottedArray($_SESSION);
+$session = new \Picios\DottedArray\DottedArray($_SESSION);
 echo $session->get('user.name');
 ```
 
+## Testing
+```
+sudo phpunit test --bootstrap vendor/autoload.php
+```
 ## Homepage
 
 You can read more at [Picios.pl](http://picios.pl/php-dotted-array/)
